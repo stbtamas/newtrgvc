@@ -1,53 +1,48 @@
-# TRGVC Official Website
+# TRGVC.club — One-page final design
 
-Launch-ready, lightweight single-page website for **TRGVC** — music, PC gaming and community.
+This version was rebuilt from the previous multi-page design based on the latest feedback.
 
-**Live site target:** https://trgvc.club
+## Changes
 
-## Highlights
+- Back to a **single-page website**
+- **Store removed**
+- Replaced / repositioned imagery so visuals are used more cleanly
+- Attached TRGVC logo cleaned for transparent use (no white/checker box)
+- Official Spotify album cover URLs used with local fallbacks
+- Album covers include:
+  - 3D mouse tilt
+  - dynamic highlight / shine
+  - subtle zoom and glow
+  - hover call-to-action
+- Responsive layout rewritten to prevent text overlap / collisions
+- Mobile layout removes 3D tilt and keeps album actions visible
+- GitHub Pages files included (`CNAME`, `.nojekyll`, `robots.txt`, `sitemap.xml`, `404.html`)
 
-- Responsive dark/neon TRGVC visual system
-- Latest-album feature section
-- Dedicated Warzone and Forza gaming spotlights
-- Full 2026 album discography with Spotify links
-- Music / Gaming / Community brand pillars
-- Social and streaming platform directory
-- Business contact section
-- Accessible keyboard focus and mobile navigation states
-- Reduced-motion support
-- Canonical URL, Open Graph, X/Twitter card and Schema.org metadata
-- `robots.txt`, `sitemap.xml` and web app manifest
-- WebP image delivery with JPG/PNG fallbacks
-- No framework or build process required
+## Deploy
 
-## Deploy on GitHub Pages
+Replace the contents of the current GitHub Pages repository with the contents of this folder, commit to the branch used by GitHub Pages, and keep the custom domain set to `trgvc.club`.
 
-1. Upload the contents of this folder to the root of the repository.
-2. In **Settings → Pages**, publish the branch containing these files.
-3. Keep the included `CNAME` file if the production domain remains `trgvc.club`.
-4. Configure your domain DNS for GitHub Pages.
 
-## Local preview
+## Logo correction
 
-```bash
-python3 -m http.server 8000
-```
+This build uses the newly supplied TRGVC logo files.
 
-Then open `http://localhost:8000`.
+- The header/footer use the complete transparent logo — no symbol crop.
+- The hero and About section use the complete logo at its original proportions.
+- No part of the bottom wordmark is clipped.
+- `object-fit: contain` is used everywhere the logo appears.
+- The supplied background version is included as `assets/images/site/logo-background.png`.
 
-## Main files
 
-```text
-trgvc-website/
-├── index.html
-├── css/style.css
-├── js/main.js
-├── assets/images/
-├── robots.txt
-├── sitemap.xml
-├── site.webmanifest
-├── CNAME
-└── README.md
-```
+## Background logo treatment
 
-© 2026 TRGVC
+The homepage hero and About section now use the supplied **logo-with-background** artwork.
+
+They are deliberately separated from the page background using:
+- a floating framed card
+- subtle purple/blue edge lighting
+- a small rotation difference between the homepage and About section
+- soft shadow and glow
+- full 1:1 artwork with no cropping
+
+The header/footer still use the transparent logo for clarity and compact sizing.

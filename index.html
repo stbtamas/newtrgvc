@@ -1,446 +1,318 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="TRGVC — electronic music, authentic PC gaming content and a community built around both. Stream the discography, watch gameplay and connect." />
-  <meta name="theme-color" content="#08080f" />
-  <meta name="color-scheme" content="dark" />
-  <meta name="robots" content="index,follow,max-image-preview:large" />
-
-  <link rel="canonical" href="https://trgvc.club/" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="TRGVC" />
-  <meta property="og:title" content="TRGVC | Music · Gaming · Community" />
-  <meta property="og:description" content="Electronic music, authentic PC gaming content and a community built around both." />
-  <meta property="og:image" content="https://trgvc.club/assets/images/social-preview.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="TRGVC — Music, Gaming and Community" />
-  <meta property="og:url" content="https://trgvc.club/" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="TRGVC | Music · Gaming · Community" />
-  <meta name="twitter:description" content="Electronic music, authentic PC gaming content and a community built around both." />
-  <meta name="twitter:image" content="https://trgvc.club/assets/images/social-preview.jpg" />
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050713">
+  <meta name="description" content="TRGVC — independent music artist, PC gaming creator and community brand from the United Kingdom. Explore the latest album When the Lights Don’t Lie, the full discography, gaming and official links.">
+  <meta name="author" content="TRGVC">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TRGVC | Music · Gaming · Community">
+  <meta property="og:description" content="Original music. Authentic PC gaming. One recognisable creator world.">
+  <meta property="og:url" content="https://trgvc.club/">
+  <meta property="og:image" content="https://trgvc.club/assets/images/site/hero-wide.png">
+  <meta name="twitter:card" content="summary_large_image">
   <title>TRGVC | Music · Gaming · Community</title>
 
-  <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon-180.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon-192.png" />
-  <link rel="manifest" href="site.webmanifest" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MusicGroup",
-    "name": "TRGVC",
-    "url": "https://trgvc.club/",
-    "image": "https://trgvc.club/assets/images/logo-hero.png",
-    "description": "Electronic music artist and gaming content creator focused on original releases, authentic PC gameplay and community.",
-    "email": "mailto:info@trgvc.club",
-    "sameAs": [
-      "https://open.spotify.com/artist/4r17VtPq9uwHDU81ER0E9o",
-      "https://www.youtube.com/@TRGVC",
-      "https://www.instagram.com/trgvcofficial",
-      "https://www.tiktok.com/@trgvc",
-      "https://x.com/trgvcofficial",
-      "https://www.facebook.com/profile.php?id=61571515744540",
-      "https://steamcommunity.com/id/TRGVC/"
-    ]
-  }
-  </script>
+  <link rel="canonical" href="https://trgvc.club/">
+  <link rel="icon" href="assets/images/site/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script defer src="assets/js/script.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to main content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <nav class="nav" id="nav" aria-label="Primary navigation">
-    <div class="nav-inner">
-      <a href="#home" class="nav-logo" aria-label="TRGVC home">
-        <img src="assets/images/logo-small.png" alt="" class="nav-logo-img" width="40" height="40" />
-        <span>TRGVC</span>
+  <div class="site-effects" aria-hidden="true">
+    <div class="ambient ambient-left"></div>
+    <div class="ambient ambient-right"></div>
+    <div class="grid"></div>
+  </div>
+
+  <header class="site-header" data-header>
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="TRGVC home">
+        <img src="assets/images/site/logo-header.png" alt="TRGVC logo">
       </a>
 
-      <button class="nav-toggle" id="navToggle" type="button" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation" data-menu-toggle>
         <span></span><span></span><span></span>
       </button>
 
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#music">Music</a></li>
-        <li><a href="#gaming">Gaming</a></li>
-        <li><a href="#community">Community</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact" class="btn-nav">Contact</a></li>
-      </ul>
+      <nav class="nav" data-nav>
+        <a href="#home">Home</a>
+        <a href="#music">Music</a>
+        <a href="#discography">Albums</a>
+        <a href="#gaming">Gaming</a>
+        <a href="#about">About</a>
+        <a href="#links">Links</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-highlight" href="https://open.spotify.com/album/2pYr1NYOShOIZ3zMRmfVVV" target="_blank" rel="noopener">Latest album</a>
+      </nav>
     </div>
-  </nav>
-
-  <header class="hero" id="home">
-    <div class="hero-bg" aria-hidden="true">
-      <div class="hero-orb hero-orb-1"></div>
-      <div class="hero-orb hero-orb-2"></div>
-      <div class="hero-orb hero-orb-3"></div>
-      <div class="hero-grid"></div>
-      <div class="hero-beams"></div>
-    </div>
-
-    <div class="hero-content">
-      <div class="hero-logo-wrap">
-        <picture>
-          <source srcset="assets/images/logo-hero.webp" type="image/webp" />
-          <img src="assets/images/logo-hero.png" alt="TRGVC official logo" class="hero-logo" width="700" height="700" />
-        </picture>
-        <div class="hero-logo-ring" aria-hidden="true"></div>
-      </div>
-
-      <p class="eyebrow hero-eyebrow">Music · Gaming · Community</p>
-      <h1 class="hero-title">TRGVC</h1>
-      <p class="hero-sub">Electronic music. Authentic PC gameplay. One community built around both.</p>
-
-      <div class="hero-ctas">
-        <a href="#music" class="btn btn-primary">Explore Music</a>
-        <a href="#gaming" class="btn btn-outline">Watch Gaming</a>
-      </div>
-
-      <div class="hero-pills" aria-label="TRGVC content pillars">
-        <span>Original Releases</span>
-        <span>PC Gaming</span>
-        <span>Community First</span>
-      </div>
-    </div>
-
-    <a class="scroll-indicator" href="#featured" aria-label="Scroll to latest release"><span></span></a>
   </header>
 
   <main id="main">
-    <section class="section featured" id="featured">
-      <div class="container">
-        <div class="section-kicker">Latest Album</div>
-        <div class="featured-card reveal">
-          <div class="album-card reveal">
-            <picture>
-              <source srcset="assets/images/albums/lights.webp" type="image/webp" />
-              <img src="assets/images/albums/lights.jpg" alt="lights" class="album-card reveal" width="640" height="640" />
-            </picture>
+    <section class="hero section-anchor" id="home">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-layout">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Independent creator · United Kingdom</p>
+          <h1>Music. Gaming.<br><span>Community.</span></h1>
+          <p class="hero-lead">TRGVC brings original music, authentic PC gaming and a strong futuristic identity together in one clean creator world.</p>
+
+          <div class="button-row">
+            <a class="button primary" href="#music">Explore the music</a>
+            <a class="button secondary" href="https://www.youtube.com/@TRGVC" target="_blank" rel="noopener">Watch on YouTube</a>
           </div>
 
-          <div class="featured-copy">
-            <p class="eyebrow">TRGVC · 2026</p>
-            <h2>When the Lights Don’t Lie</h2>
-            <p>Step into the latest full-length TRGVC release — **When the Lights Don’t Lie** is a powerful journey through darkness, emotion, self-discovery, and the strength to keep moving forward when everything else fades away.
-</p>
-            <div class="featured-actions">
-              <a href="https://open.spotify.com/album/2pYr1NYOShOIZ3zMRmfVVV?si=b73glUcBQlutTZb5tQL_og" target="_blank" rel="noopener" class="btn btn-primary">Listen on Spotify</a>
-              <a href="#discography" class="text-link">View discography <span aria-hidden="true">→</span></a>
+          <div class="stat-row" aria-label="TRGVC highlights">
+            <div><strong>5</strong><span>albums in 2026</span></div>
+            <div><strong>14</strong><span>tracks on the latest album</span></div>
+            <div><strong>PC</strong><span>gaming-first content</span></div>
+          </div>
+        </div>
+
+        <div class="hero-logo-wrap reveal delay-1">
+          <div class="background-logo-card hero-background-logo">
+            <div class="background-logo-inner">
+              <img src="assets/images/site/logo-background.png" alt="TRGVC logo artwork">
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section gaming gaming-spotlight" id="gaming">
+    <section class="section latest section-anchor" id="music">
       <div class="container">
         <div class="section-heading reveal">
-          <div>
-            <p class="section-kicker">Gaming</p>
-            <h2 class="section-title left">Real sessions. Real outcomes.</h2>
-          </div>
-          <p class="section-desc left">TRGVC Gaming focuses on genuine PC gameplay, challenges, wins, mistakes and everything in between.</p>
+          <p class="eyebrow">Latest album</p>
+          <h2>When the Lights Don’t Lie</h2>
+          <p>A 14-track TRGVC project built around pressure, identity, confidence, struggle and release — with bass-heavy modern production and a strong late-night atmosphere.</p>
         </div>
 
-        <div class="gaming-grid">
-          <a class="gaming-card gaming-card-warzone reveal" href="https://www.youtube.com/@TRGVC/search?query=warzone" target="_blank" rel="noopener">
-            <div class="gaming-card-bg" aria-hidden="true">
-              <span class="reticle"></span>
-              <span class="scanline"></span>
-            </div>
-            <div class="gaming-card-content">
-              <span class="card-label">Call of Duty</span>
-              <h3>Warzone</h3>
-              <p>Wins, challenges, loadouts and full-pressure endgames.</p>
-              <span class="card-action">Watch Warzone <span aria-hidden="true">→</span></span>
+        <div class="latest-grid">
+          <a class="latest-cover album-tilt reveal" href="https://open.spotify.com/album/2pYr1NYOShOIZ3zMRmfVVV" target="_blank" rel="noopener" aria-label="Listen to When the Lights Don’t Lie on Spotify">
+            <div class="album-visual">
+              <img src="https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0223ef86ea26403938733fe5b2"
+                   onerror="this.onerror=null;this.src='assets/images/albums/fallback-lights.jpg';"
+                   alt="When the Lights Don’t Lie album cover">
+              <span class="album-shine"></span>
+              <span class="album-hover-cta">Listen on Spotify ↗</span>
             </div>
           </a>
 
-          <a class="gaming-card gaming-card-forza reveal" href="https://www.youtube.com/@TRGVC/search?query=forza" target="_blank" rel="noopener">
-            <div class="gaming-card-bg" aria-hidden="true">
-              <span class="speed-line speed-line-1"></span>
-              <span class="speed-line speed-line-2"></span>
-              <span class="speed-line speed-line-3"></span>
+          <div class="latest-copy panel reveal delay-1">
+            <div class="meta-pills">
+              <span>1 September 2026</span>
+              <span>14 tracks</span>
+              <span>53:43</span>
             </div>
-            <div class="gaming-card-content">
-              <span class="card-label">Racing</span>
-              <h3>Forza Horizon</h3>
-              <p>Cars, builds, drifting, exploration and progression.</p>
-              <span class="card-action">Watch Forza <span aria-hidden="true">→</span></span>
-            </div>
-          </a>
+            <h3>Pressure. Identity. Resilience. Release.</h3>
+            <p><strong>When the Lights Don’t Lie</strong> is the current flagship TRGVC release. The album moves between energetic club-ready moments and more personal tracks about everyday pressure, ambition and finding your own direction.</p>
 
-          <a class="gaming-card gaming-card-all reveal" href="https://www.youtube.com/@TRGVC/videos" target="_blank" rel="noopener">
-            <div class="gaming-card-logo" aria-hidden="true">
-              <img src="assets/images/logo-small.png" alt="" width="88" height="88" />
+            <ol class="tracklist">
+              <li>Midnight Pressure</li>
+              <li>Lights Don’t Lie</li>
+              <li>Beautiful Confusion</li>
+              <li>You Don’t Know Me</li>
+              <li>Wolves Around My Dreams</li>
+              <li>Tired</li>
+              <li>Fighting the Static</li>
+              <li>Forward</li>
+              <li>Protect Your Mission</li>
+              <li>I’m Flying</li>
+              <li>Heatwave Heart</li>
+              <li>No Sleep Tonight</li>
+              <li>We Own the Night</li>
+              <li>When the Day Is Done</li>
+            </ol>
+
+            <div class="button-row">
+              <a class="button primary" href="https://open.spotify.com/album/2pYr1NYOShOIZ3zMRmfVVV" target="_blank" rel="noopener">Spotify</a>
+              <a class="button secondary" href="https://music.apple.com/us/artist/trgvc/1875089429" target="_blank" rel="noopener">Apple Music</a>
+              <a class="button secondary" href="https://music.amazon.co.uk/artists/B0GLXTS1JZ/trgvc" target="_blank" rel="noopener">Amazon Music</a>
             </div>
-            <div class="gaming-card-content">
-              <span class="card-label">YouTube</span>
-              <h3>All Gaming Videos</h3>
-              <p>Browse the full archive and latest uploads on the TRGVC channel.</p>
-              <span class="card-action">Open YouTube <span aria-hidden="true">→</span></span>
-            </div>
-          </a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section music" id="music">
+    <section class="section discography section-anchor" id="discography">
       <div class="container">
         <div class="section-heading reveal">
-          <div>
-            <p class="section-kicker">Music</p>
-            <h2 class="section-title left">The TRGVC discography</h2>
-          </div>
-          <p class="section-desc left">Full-length electronic releases built around energy, atmosphere and a digital-night aesthetic.</p>
+          <p class="eyebrow">Discography</p>
+          <h2>Five albums. Clean, matched presentation.</h2>
+          <p>Every cover keeps the same proportions and spacing. On desktop, move your mouse across a cover for the 3D tilt, glow and reveal effect.</p>
         </div>
 
-        <div class="albums-grid" id="discography">
-                    <a href="https://open.spotify.com/album/2pYr1NYOShOIZ3zMRmfVVV?si=qq68CNcLRRex6x1DvyHGKw" target="_blank" rel="noopener" class="album-card reveal">
-            <div class="album-art">
-              <picture>
-                <source srcset="assets/images/albums/lights.webp" type="image/webp" />
-                <img src="assets/images/albums/lights.jpg" alt="lights" loading="lazy" width="640" height="640" />
-              </picture>
-              <span class="album-overlay">Listen</span>
+        <div class="album-grid">
+          <a class="album-card album-tilt reveal" href="https://open.spotify.com/album/2pYr1NYOShOIZ3zMRmfVVV" target="_blank" rel="noopener">
+            <div class="album-visual">
+              <img src="https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0223ef86ea26403938733fe5b2" onerror="this.onerror=null;this.src='assets/images/albums/fallback-lights.jpg';" alt="When the Lights Don’t Lie">
+              <span class="album-shine"></span>
+              <span class="album-hover-cta">Open album ↗</span>
             </div>
             <div class="album-info">
-              <span class="album-meta">Album · 2026</span>
+              <span>2026 · Latest</span>
               <h3>When the Lights Don’t Lie</h3>
-              <span class="listen">Spotify <span aria-hidden="true">→</span></span>
+              <p>14 tracks · 53:43</p>
             </div>
           </a>
-          
-          <a href="https://open.spotify.com/album/4AC3K4l4IN7mg8Ttu57tCx" target="_blank" rel="noopener" class="album-card reveal">
-            <div class="album-art">
-              <picture>
-                <source srcset="assets/images/albums/signals.webp" type="image/webp" />
-                <img src="assets/images/albums/signals.jpg" alt="Signals in the Dark album cover" loading="lazy" width="640" height="640" />
-              </picture>
-              <span class="album-overlay">Listen</span>
+
+          <a class="album-card album-tilt reveal delay-1" href="https://open.spotify.com/album/4AC3K4l4IN7mg8Ttu57tCx" target="_blank" rel="noopener">
+            <div class="album-visual">
+              <img src="https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e0208676f61730328d8bfceb61b" onerror="this.onerror=null;this.src='assets/images/albums/fallback-signals.jpg';" alt="Signals in the Dark">
+              <span class="album-shine"></span>
+              <span class="album-hover-cta">Open album ↗</span>
             </div>
             <div class="album-info">
-              <span class="album-meta">Album · 2026</span>
+              <span>2026</span>
               <h3>Signals in the Dark</h3>
-              <span class="listen">Spotify <span aria-hidden="true">→</span></span>
+              <p>14 tracks</p>
             </div>
           </a>
 
-          <a href="https://open.spotify.com/album/06l7DRPWtlW0LC3tgCxRsJ" target="_blank" rel="noopener" class="album-card reveal">
-            <div class="album-art">
-              <picture>
-                <source srcset="assets/images/albums/pulse.webp" type="image/webp" />
-                <img src="assets/images/albums/pulse.jpg" alt="Pulse of the Night album cover" loading="lazy" width="640" height="640" />
-              </picture>
-              <span class="album-overlay">Listen</span>
+          <a class="album-card album-tilt reveal delay-2" href="https://open.spotify.com/album/06l7DRPWtlW0LC3tgCxRsJ" target="_blank" rel="noopener">
+            <div class="album-visual">
+              <img src="https://image-cdn-fa.spotifycdn.com/image/ab67616d00001e02098a26cc5b3c8837561863a7" onerror="this.onerror=null;this.src='assets/images/albums/fallback-pulse.jpg';" alt="Pulse of the Night">
+              <span class="album-shine"></span>
+              <span class="album-hover-cta">Open album ↗</span>
             </div>
             <div class="album-info">
-              <span class="album-meta">Album · 2026</span>
+              <span>2026</span>
               <h3>Pulse of the Night</h3>
-              <span class="listen">Spotify <span aria-hidden="true">→</span></span>
+              <p>10 tracks</p>
             </div>
           </a>
 
-          <a href="https://open.spotify.com/album/0dq1fWEkpHQAHCLto4FB2m" target="_blank" rel="noopener" class="album-card reveal">
-            <div class="album-art">
-              <picture>
-                <source srcset="assets/images/albums/velocity.webp" type="image/webp" />
-                <img src="assets/images/albums/velocity.jpg" alt="Velocity Horizon album cover" loading="lazy" width="640" height="640" />
-              </picture>
-              <span class="album-overlay">Listen</span>
+          <a class="album-card album-tilt reveal delay-3" href="https://open.spotify.com/album/0dq1fWEkpHQAHCLto4FB2m" target="_blank" rel="noopener">
+            <div class="album-visual">
+              <img src="https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e022e492102b0095166e620e8c1" onerror="this.onerror=null;this.src='assets/images/albums/fallback-velocity.jpg';" alt="Velocity Horizon">
+              <span class="album-shine"></span>
+              <span class="album-hover-cta">Open album ↗</span>
             </div>
             <div class="album-info">
-              <span class="album-meta">Album · 2026</span>
+              <span>2026</span>
               <h3>Velocity Horizon</h3>
-              <span class="listen">Spotify <span aria-hidden="true">→</span></span>
+              <p>15 tracks</p>
             </div>
           </a>
 
-          <a href="https://open.spotify.com/album/3wj0OkKqr1DJ9pjOwQBWT7" target="_blank" rel="noopener" class="album-card reveal">
-            <div class="album-art">
-              <picture>
-                <source srcset="assets/images/albums/digital.webp" type="image/webp" />
-                <img src="assets/images/albums/digital.jpg" alt="The Digital Sunrise album cover" loading="lazy" width="640" height="640" />
-              </picture>
-              <span class="album-overlay">Listen</span>
+          <a class="album-card album-tilt reveal" href="https://open.spotify.com/album/3wj0OkKqr1DJ9pjOwQBWT7" target="_blank" rel="noopener">
+            <div class="album-visual">
+              <img src="https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e022ef6e9c8d0220f7447164556" onerror="this.onerror=null;this.src='assets/images/albums/fallback-sunrise.jpg';" alt="The Digital Sunrise">
+              <span class="album-shine"></span>
+              <span class="album-hover-cta">Open album ↗</span>
             </div>
             <div class="album-info">
-              <span class="album-meta">Album · 2026</span>
+              <span>2026</span>
               <h3>The Digital Sunrise</h3>
-              <span class="listen">Spotify <span aria-hidden="true">→</span></span>
+              <p>17 tracks</p>
             </div>
-          </a>
-        </div>
-
-        <div class="music-platforms reveal">
-          <p class="platform-label">Stream TRGVC everywhere</p>
-          <div class="platform-links">
-            <a href="https://open.spotify.com/artist/4r17VtPq9uwHDU81ER0E9o" target="_blank" rel="noopener" class="platform-btn">Spotify</a>
-            <a href="https://music.apple.com/us/artist/trgvc/1875089429" target="_blank" rel="noopener" class="platform-btn">Apple Music</a>
-            <a href="https://music.youtube.com/channel/UCTJMtzodlcDEYt38qR_0cxQ" target="_blank" rel="noopener" class="platform-btn">YouTube Music</a>
-            <a href="https://tidal.com/artist/74097811" target="_blank" rel="noopener" class="platform-btn">Tidal</a>
-            <a href="https://deezer.com/en/artist/371691531" target="_blank" rel="noopener" class="platform-btn">Deezer</a>
-            <a href="https://music.amazon.co.uk/artists/B0GLXTS1JZ/trgvc" target="_blank" rel="noopener" class="platform-btn">Amazon Music</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section pillars" id="about">
-      <div class="container">
-        <div class="section-heading centered reveal">
-          <p class="section-kicker">What TRGVC is built around</p>
-          <h2 class="section-title">Music. Gaming. Community.</h2>
-          <p class="section-desc">Three parts of one creative project, connected by the same digital identity.</p>
-        </div>
-
-        <div class="pillars-grid">
-          <article class="pillar-card reveal">
-            <div class="pillar-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg>
-            </div>
-            <span class="pillar-number">01</span>
-            <h3>Music</h3>
-            <p>Original electronic releases shaped by club energy, cinematic atmosphere and modern digital culture.</p>
-          </article>
-
-          <article class="pillar-card reveal">
-            <div class="pillar-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M8 8h8a5 5 0 0 1 4.8 6.4l-1.1 3.5a2 2 0 0 1-3.3.8l-2.1-1.9H9.7l-2.1 1.9a2 2 0 0 1-3.3-.8l-1.1-3.5A5 5 0 0 1 8 8Z"/><path d="M8 12v4M6 14h4M16 13h.01M18 15h.01"/></svg>
-            </div>
-            <span class="pillar-number">02</span>
-            <h3>Gaming</h3>
-            <p>Authentic PC gameplay built around real sessions, improvement, challenge and entertainment rather than manufactured highlights.</p>
-          </article>
-
-          <article class="pillar-card reveal">
-            <div class="pillar-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20a6 6 0 0 1 12 0M13 19a5 5 0 0 1 8 0"/></svg>
-            </div>
-            <span class="pillar-number">03</span>
-            <h3>Community</h3>
-            <p>A place for gamers, music listeners and creators to connect across YouTube, Discord and social platforms.</p>
-          </article>
-        </div>
-
-        <div class="about-story reveal">
-          <div class="about-story-mark">TRGVC</div>
-          <div class="about-story-copy">
-            <p class="eyebrow">About the project</p>
-            <h3>From gameplay channel to a wider creative identity.</h3>
-            <p>TRGVC began around gaming and grew into a broader independent project combining original music, digital media and community. The goal is simple: make distinctive work, keep the presentation direct, and build a recognisable world around the things that matter most to the project.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section community" id="community">
-      <div class="container">
-        <div class="community-panel reveal">
-          <div class="community-copy">
-            <p class="section-kicker">Community</p>
-            <h2>Join the TRGVC network.</h2>
-            <p>Follow new releases, gaming uploads and community updates across the platforms you already use.</p>
-            <div class="community-actions">
-              <a href="https://discord.gg/N8KGpmnAY" target="_blank" rel="noopener" class="btn btn-primary">Join Discord</a>
-              <a href="https://www.youtube.com/@TRGVC" target="_blank" rel="noopener" class="btn btn-outline">YouTube Channel</a>
-            </div>
-          </div>
-          <div class="community-emblem" aria-hidden="true">
-            <img src="assets/images/logo-small.png" alt="" width="180" height="180" />
-          </div>
-        </div>
-
-        <div class="social-grid" aria-label="TRGVC social and platform links">
-          <a href="https://www.youtube.com/@TRGVC" target="_blank" rel="noopener" class="social-card reveal">
-            <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="4"/><path d="m10 9 5 3-5 3Z"/></svg></span>
-            <span class="social-name">YouTube</span>
-            <span class="social-handle">@TRGVC</span>
-          </a>
-
-          <a href="https://www.instagram.com/trgvcofficial" target="_blank" rel="noopener" class="social-card reveal">
-            <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg></span>
-            <span class="social-name">Instagram</span>
-            <span class="social-handle">@trgvcofficial</span>
-          </a>
-
-          <a href="https://x.com/trgvcofficial" target="_blank" rel="noopener" class="social-card reveal">
-            <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4 19 20M19 4 5 20"/></svg></span>
-            <span class="social-name">X</span>
-            <span class="social-handle">@trgvcofficial</span>
-          </a>
-
-          <a href="https://www.tiktok.com/@trgvc" target="_blank" rel="noopener" class="social-card reveal">
-            <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 4v11.2a4 4 0 1 1-3-3.9M14 4c.7 2.4 2.2 3.9 5 4"/></svg></span>
-            <span class="social-name">TikTok</span>
-            <span class="social-handle">@trgvc</span>
-          </a>
-
-          <a href="https://www.facebook.com/profile.php?id=61571515744540" target="_blank" rel="noopener" class="social-card reveal">
-            <span class="social-icon social-letter" aria-hidden="true">f</span>
-            <span class="social-name">Facebook</span>
-            <span class="social-handle">TRGVC</span>
-          </a>
-
-          <a href="https://open.spotify.com/artist/4r17VtPq9uwHDU81ER0E9o" target="_blank" rel="noopener" class="social-card reveal">
-            <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M7.5 10c3.5-1 7.7-.7 10.5.8M8.5 13c3-.7 6.3-.4 8.7.8M9.2 16c2.3-.5 4.8-.3 6.6.6"/></svg></span>
-            <span class="social-name">Spotify</span>
-            <span class="social-handle">Artist Page</span>
-          </a>
-
-          <a href="https://steamcommunity.com/id/TRGVC/" target="_blank" rel="noopener" class="social-card reveal">
-            <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="15.5" cy="8.5" r="3.5"/><circle cx="7" cy="16" r="2.5"/><path d="m9 15 4-4M4 14l1 1"/></svg></span>
-            <span class="social-name">Steam</span>
-            <span class="social-handle">/id/TRGVC</span>
-          </a>
-
-          <a href="https://discord.gg/N8KGpmnAY" target="_blank" rel="noopener" class="social-card reveal">
-            <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 7.5A12 12 0 0 1 12 6a12 12 0 0 1 5 1.5c1.2 1.8 2 4.5 2 7.2a10 10 0 0 1-3.2 1.8l-.8-1.1M9 15.4l-.8 1.1A10 10 0 0 1 5 14.7c0-2.7.8-5.4 2-7.2"/><circle cx="9.5" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="14.5" cy="12" r="1" fill="currentColor" stroke="none"/></svg></span>
-            <span class="social-name">Discord</span>
-            <span class="social-handle">Join Community</span>
           </a>
         </div>
       </div>
     </section>
 
-    <section class="section contact" id="contact">
+    <section class="section gaming section-anchor" id="gaming">
+      <div class="container gaming-layout">
+        <div class="gaming-image panel reveal">
+          <img src="assets/images/site/studio-wide.png" alt="TRGVC gaming and music studio artwork">
+        </div>
+
+        <div class="gaming-copy reveal delay-1">
+          <p class="eyebrow">PC gaming</p>
+          <h2>Real sessions. Real outcomes.</h2>
+          <p>TRGVC Gaming stays focused on genuine PC gameplay — wins, mistakes, tactical decisions, weird loadouts, random squads and the pressure of the last fight.</p>
+
+          <div class="feature-list">
+            <div class="panel">
+              <strong>Call of Duty: Warzone</strong>
+              <span>Wins, clutch moments, loadouts, randoms and high-pressure endgames.</span>
+            </div>
+            <div class="panel">
+              <strong>Forza Horizon</strong>
+              <span>Cars, builds, drifting, challenges and progression.</span>
+            </div>
+            <div class="panel">
+              <strong>Shorts + long-form</strong>
+              <span>Fast highlights and full gameplay videos across the TRGVC channel.</span>
+            </div>
+          </div>
+
+          <div class="button-row">
+            <a class="button primary" href="https://www.youtube.com/@TRGVC/videos" target="_blank" rel="noopener">Watch gaming videos</a>
+            <a class="button secondary" href="https://steamcommunity.com/id/stbvideo" target="_blank" rel="noopener">Steam profile</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about section-anchor" id="about">
+      <div class="container about-layout">
+        <div class="about-logo reveal">
+          <div class="background-logo-card about-background-logo">
+            <div class="background-logo-inner">
+              <img src="assets/images/site/logo-background.png" alt="TRGVC logo artwork">
+            </div>
+          </div>
+        </div>
+
+        <div class="about-copy reveal delay-1">
+          <p class="eyebrow">About TRGVC</p>
+          <h2>Independent music + PC gaming under one identity.</h2>
+          <p>Based in the United Kingdom, TRGVC combines original music, PC gaming and community into one recognisable creator brand.</p>
+          <p>The project grew from gameplay into a wider world of music releases, livestreams, social content and visual design. The goal is simple: keep everything recognisable, polished and authentically TRGVC.</p>
+
+          <div class="facts">
+            <div class="panel"><span>Based in</span><strong>United Kingdom</strong></div>
+            <div class="panel"><span>Core pillars</span><strong>Music · Gaming · Community</strong></div>
+            <div class="panel"><span>Gaming focus</span><strong>PC</strong></div>
+            <div class="panel"><span>Current catalogue</span><strong>5 full-length albums</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section official-links section-anchor" id="links">
       <div class="container">
-        <div class="contact-grid reveal">
-          <div class="contact-copy">
-            <p class="section-kicker">Contact</p>
+        <div class="section-heading reveal">
+          <p class="eyebrow">Official links</p>
+          <h2>TRGVC everywhere.</h2>
+        </div>
+
+        <div class="link-grid">
+          <a class="panel reveal" href="https://open.spotify.com/artist/4r17VtPq9uwHDU81ER0E9o" target="_blank" rel="noopener"><strong>Spotify</strong><span>Artist profile</span></a>
+          <a class="panel reveal delay-1" href="https://music.apple.com/us/artist/trgvc/1875089429" target="_blank" rel="noopener"><strong>Apple Music</strong><span>Artist profile</span></a>
+          <a class="panel reveal delay-2" href="https://music.youtube.com/channel/UCTJMtzodlcDEYt38qR_0cxQ" target="_blank" rel="noopener"><strong>YouTube Music</strong><span>Music channel</span></a>
+          <a class="panel reveal delay-3" href="https://tidal.com/artist/74097811" target="_blank" rel="noopener"><strong>TIDAL</strong><span>Artist profile</span></a>
+          <a class="panel reveal" href="https://www.deezer.com/en/artist/371691531" target="_blank" rel="noopener"><strong>Deezer</strong><span>Artist profile</span></a>
+          <a class="panel reveal delay-1" href="https://music.amazon.co.uk/artists/B0GLXTS1JZ/trgvc" target="_blank" rel="noopener"><strong>Amazon Music</strong><span>Artist profile</span></a>
+          <a class="panel reveal delay-2" href="https://www.youtube.com/@TRGVC" target="_blank" rel="noopener"><strong>YouTube</strong><span>@TRGVC</span></a>
+          <a class="panel reveal delay-3" href="https://www.tiktok.com/@trgvc" target="_blank" rel="noopener"><strong>TikTok</strong><span>@trgvc</span></a>
+          <a class="panel reveal" href="https://www.instagram.com/trgvcofficial/" target="_blank" rel="noopener"><strong>Instagram</strong><span>@trgvcofficial</span></a>
+          <a class="panel reveal delay-1" href="https://x.com/trgvcofficial" target="_blank" rel="noopener"><strong>X</strong><span>@trgvcofficial</span></a>
+          <a class="panel reveal delay-2" href="https://www.facebook.com/61571515744540/" target="_blank" rel="noopener"><strong>Facebook</strong><span>Official page</span></a>
+          <a class="panel reveal delay-3" href="https://discord.gg/N8KGpmnAY" target="_blank" rel="noopener"><strong>Discord</strong><span>Community</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact section-anchor" id="contact">
+      <div class="container">
+        <div class="contact-panel panel reveal">
+          <div>
+            <p class="eyebrow">Contact</p>
             <h2>Work with TRGVC.</h2>
-            <p>For collaborations, licensing, music opportunities, gaming partnerships, press and other business enquiries.</p>
-            <a href="mailto:info@trgvc.club" class="contact-email">info@trgvc.club <span aria-hidden="true">→</span></a>
+            <p>For collaborations, music opportunities, licensing, gaming partnerships, press and business enquiries.</p>
           </div>
-
-          <div class="contact-types" aria-label="Contact enquiry types">
-            <div class="contact-type">
-              <span>Music</span>
-              <p>Collaborations, features and licensing.</p>
-            </div>
-            <div class="contact-type">
-              <span>Gaming</span>
-              <p>Creator collaborations and partnerships.</p>
-            </div>
-            <div class="contact-type">
-              <span>Business</span>
-              <p>Brand work, press and general enquiries.</p>
-            </div>
+          <div class="contact-buttons">
+            <a class="button primary" href="mailto:info@trgvc.club">info@trgvc.club</a>
+            <a class="button secondary" href="https://www.instagram.com/trgvcofficial/" target="_blank" rel="noopener">Instagram</a>
+            <a class="button secondary" href="https://www.youtube.com/@TRGVC" target="_blank" rel="noopener">YouTube</a>
           </div>
         </div>
       </div>
@@ -448,21 +320,13 @@
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <div class="footer-top">
-        <a href="#home" class="footer-brand" aria-label="Back to top">
-          <img src="assets/images/logo-small.png" alt="" class="footer-logo" width="36" height="36" />
-          <span>TRGVC</span>
-        </a>
-        <p>Music · Gaming · Community</p>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 TRGVC. All rights reserved.</p>
-        <a href="mailto:info@trgvc.club">info@trgvc.club</a>
-      </div>
+    <div class="container footer-row">
+      <a class="brand" href="#home">
+        <img src="assets/images/site/logo-header.png" alt="TRGVC logo">
+      </a>
+      <p>Music · Gaming · Community</p>
+      <p>© <span id="year"></span> TRGVC</p>
     </div>
   </footer>
-
-  <script src="js/main.js" defer></script>
 </body>
 </html>
