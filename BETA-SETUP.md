@@ -4,9 +4,9 @@ This branch adapts the community prototype to the existing stbtamas/newtrgvc rep
 
 ## Current status
 
-Implemented locally; not pushed or deployed. No live beta URL exists yet. The default Worker name is `newtrgvc-beta`, deliberately separate from the existing `newtrgvc` production service. Do not merge this branch to main or change the existing production build until the beta is configured and reviewed.
+Published on the `community-beta` branch and connected to the separate Cloudflare Worker `newtrgvc-beta`. The first hosted application build is pending. The existing `newtrgvc` production service remains separate. Do not merge this branch to main or change the existing production build until the beta is configured and reviewed.
 
-The old Sites/ChatGPT authentication dependency has been removed. This version uses Supabase email-code authentication, Cloudflare D1 for community data, and R2 for avatars. No real account service, database, bucket or email provider has been created by this change.
+The old Sites/ChatGPT authentication dependency has been removed. This version uses Supabase email-code authentication, Cloudflare D1 for community data, and R2 for avatars. The beta D1 database and R2 avatar bucket have been created and connected. Supabase and email delivery still need configuring.
 
 ## What is included
 
@@ -16,11 +16,11 @@ The same authenticated Supabase user ID identifies a member across the browser a
 
 ## Configure the beta once
 
-1. Connect GitHub access for the `stbtamas/newtrgvc` repository and push the `community-beta` branch. This branch has not been pushed by the assistant.
-2. Create a separate Cloudflare Worker named `newtrgvc-beta` using that branch. Set build command to `npm run build`, deploy command to `npm run deploy`, root directory `/`. Keep the existing production Worker unchanged. Existing non-production version builds on the original Worker are not the intended beta environment.
-3. In an authenticated local terminal, run `pnpm install --frozen-lockfile`, then `npx wrangler d1 create newtrgvc-beta-db` and `npx wrangler r2 bucket create newtrgvc-beta-avatars`. R2 account activation may be required.
-4. Pass the real returned database UUID to `node scripts/configure-storage.mjs DATABASE_UUID`. Commit the resulting configuration. The helper does not fabricate an ID or create resources.
-5. Run `npm run db:migrate` once to apply the migrations to the selected beta database. Future runs use the migration history.
+1. GitHub access is connected for `stbtamas/newtrgvc`, and the beta code is published on `community-beta`.
+2. The separate Cloudflare Worker `newtrgvc-beta` is connected to that production branch with build command `npm run build`, deploy command `npm run deploy`, and root directory `/`.
+3. D1 database `newtrgvc-beta-db` and R2 bucket `newtrgvc-beta-avatars` have been created.
+4. The real D1 UUID and R2 bucket binding are committed in `wrangler.jsonc`.
+5. The initial D1 tables were applied manually through the Cloudflare console. Do not run the initial Wrangler migrations against this database until the migration baseline has been reconciled; the tables already exist.
 6. Create a Supabase project for beta authentication. Enable email-code sign-in, and change its email template to include `{{ .Token }}` as the code. Configure email delivery/SMTP for the intended testers. Default provider email sending restrictions must be checked before inviting people.
 7. Set the Cloudflare Worker runtime variables `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY` to the beta project values. A Supabase service-role key is NOT needed and must not be put into this app's client bundle.
 8. Sign in and obtain your verified Supabase user UUID from its user dashboard. Set `OWNER_USER_IDS` to that UUID. Optional moderator UUIDs go in `MODERATOR_USER_IDS`. Values are comma-separated; roles are enforced by server code. Never make the first signup an admin.
