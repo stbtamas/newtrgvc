@@ -1,0 +1,1 @@
+declare namespace Cloudflare {interface Env {DB?:D1Database;BUCKET?:R2Bucket;ASSETS:Fetcher;OWNER_USER_IDS?:string;MODERATOR_USER_IDS?:string;YOUTUBE_API_KEY?:string;YOUTUBE_CHANNEL_ID?:string;SUPABASE_URL?:string;SUPABASE_PUBLISHABLE_KEY?:string;}}

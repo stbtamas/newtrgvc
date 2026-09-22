@@ -1,0 +1,1 @@
+import{cp,mkdir}from'node:fs/promises';await mkdir('dist',{recursive:true});for(const p of ['index.html','404.html','robots.txt','sitemap.xml','assets'])await cp(p,'dist/'+p,{recursive:true});for(const p of ['trgvc.webp','icon-192.png','icon-512.png','offline.html','manifest.webmanifest','sw.js'])await cp('community/'+p,'dist/community/'+p);

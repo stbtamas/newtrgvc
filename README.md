@@ -1,3 +1,7 @@
+# Community beta branch
+
+See [BETA-SETUP.md](BETA-SETUP.md) for the new Cloudflare beta setup. The historical website notes below describe the original static site and are not the beta deployment instructions.
+
 # TRGVC.club — One-page final design
 
 This version was rebuilt from the previous multi-page design based on the latest feedback.
