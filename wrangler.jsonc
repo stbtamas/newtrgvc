@@ -23,5 +23,11 @@
       "database_id": "d1e9b8a7-6ed8-4c9b-aa44-0a22600d9653",
       "migrations_dir": "migrations"
     }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "BUCKET",
+      "bucket_name": "newtrgvc-beta-avatars"
+    }
   ]
 }
