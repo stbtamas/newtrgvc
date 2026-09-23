@@ -1,0 +1,1 @@
+import{readFileSync}from'node:fs';const c=JSON.parse(readFileSync('wrangler.jsonc','utf8'));if(!c.d1_databases?.some(d=>d.binding==='DB'&&d.database_id)||!c.r2_buckets?.some(b=>b.binding==='BUCKET'))throw Error('Configure the beta D1 and R2 bindings first. See BETA-SETUP.md.');

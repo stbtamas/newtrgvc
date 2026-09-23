@@ -1,0 +1,4 @@
+const CACHE='trgvc-shell-cloudflare-v1';
+self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(['/community/offline.html','/community/trgvc.webp','/community/icon-192.png'])));self.skipWaiting()});
+self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('trgvc-shell-')&&k!==CACHE).map(k=>caches.delete(k)))));self.clients.claim()});
+self.addEventListener('fetch',e=>{const url=new URL(e.request.url);if(e.request.method!=='GET'||url.origin!==self.location.origin||url.pathname.startsWith('/api/')||url.pathname==='/community/login'||url.pathname==='/callback')return;if(e.request.mode==='navigate'){e.respondWith(fetch(e.request).catch(()=>caches.match('/community/offline.html')));return}if(['/community/trgvc.webp','/community/icon-192.png'].includes(url.pathname))e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)))});
