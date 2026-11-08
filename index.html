@@ -1776,7 +1776,7 @@
 
   <script>
     const CHANNEL_ID = "UCTJMtzodlcDEYt38qR_0cxQ";
-    const UPLOADS_PLAYLIST_ID = "UUCTJMtzodlcDEYt38qR_0cxQ";
+    const UPLOADS_PLAYLIST_ID = "UUTJMtzodlcDEYt38qR_0cxQ";
     const MUSIC_PLAYLIST_ID = "PL5mv7FjsynbzKMH3jYHHn2i7EziEFpo7-";
     const GAMING_PLAYLIST_ID = "PLGLaDUSam8Cs";
 
@@ -1822,6 +1822,8 @@
         ALL_SONGS.push({ title: t, albumTitle: ALBUM_DATA[k].title, albumId: ALBUM_DATA[k].albumId, key: k });
       });
     });
+
+    const KNOWN_SONG_TITLES = new Set(ALL_SONGS.map(s => s.title.toLowerCase()));
 
     function handleSongSearch(q) {
       const clean = (q || "").trim().toLowerCase();
@@ -1884,34 +1886,60 @@
       document.getElementById("spotify-player-box").scrollIntoView({ behavior: "smooth", block: "center" });
     }
 
-    let latestSyncedGaming = [];
-    let latestSyncedMusic = [];
+    const FALLBACK_MUSIC = [
+      { id: "_9-fsug6184", title: "TRGVC - Turn It Up Louder (Official Audio)", date: "24 Oct 2026", timestamp: 1729728000000 },
+      { id: "yK2_v3s_y1E", title: "TRGVC – No Sleep Tonight (Official Audio)", date: "Oct 2026", timestamp: 1728518400000 },
+      { id: "ZW2g_4PKqNE", title: "TRGVC - When the Day Is Done (Official Audio)", date: "31 Aug 2026", timestamp: 1725062400000 },
+      { id: "yXBxfk6CCwc", title: "TRGVC – Heatwave Heart (Official Audio)", date: "15 Aug 2026", timestamp: 1723680000000 },
+      { id: "lhh2cj7u8Yw", title: "TRGVC – Beautiful Confusion (Official Audio)", date: "4 Aug 2026", timestamp: 1722729600000 },
+      { id: "XYa7Awtu3gk", title: "TRGVC - Midnight Pressure (Official Audio)", date: "9 Jul 2026", timestamp: 1720483200000 }
+    ];
+
+    const FALLBACK_GAMING = [
+      { id: "CshBJO8wmp4", title: "THESE HITS ARE TOO SATISFYING 🤯🔥 Sniper & Throwing Knife Montage | MW4 DMZ", date: "25 Oct 2026", timestamp: 1729814400000 },
+      { id: "LxuZlve8a6s", title: "RISE OF THE MERCHANTS Early Access Gameplay! Can I Build a Trading Empire?", date: "23 Oct 2026", timestamp: 1729641600000 },
+      { id: "o74DlQtj-ng", title: "OPERATION IRON CITADEL COMPLETED IN ONE PUSH! 🔥 | Modern Warfare 4 DMZ", date: "22 Oct 2026", timestamp: 1729555200000 },
+      { id: "o6GR_-quInw", title: "Call of Duty: Modern Warfare 4 FULL CAMPAIGN | Complete Walkthrough", date: "20 Oct 2026", timestamp: 1729382400000 },
+      { id: "kI0p0JDRdyw", title: "CoD Modern Warfare 4 Campaign Gameplay LIVE | PC 1440p 60FPS", date: "18 Oct 2026", timestamp: 1729209600000 },
+      { id: "-rAaxLAS2xQ", title: "WRECKFEST 2 NEW UPDATE! FINALLY PLAYABLE… BUT ONLY ON A HIGH-END PC?!", date: "15 Oct 2026", timestamp: 1728950400000 },
+      { id: "ojFfWmCY8qg", title: "He Had SPECIALIST… And STILL Couldn't Beat Me 😈🔥 | Warzone Rebirth Island", date: "Oct 2026", timestamp: 1728172800000 },
+      { id: "Tmu9mlAcQr0", title: "Gears of War: E-Day Episode 1 🔥 I Was NOT Ready for How This Ends...", date: "Oct 2026", timestamp: 1727913600000 }
+    ];
+
+    let latestSyncedGaming = [...FALLBACK_GAMING];
+    let latestSyncedMusic = [...FALLBACK_MUSIC];
+    let currentTopMode = "music";
 
     function switchTopPlayer(mode) {
+      currentTopMode = mode;
       const player = document.getElementById("main-yt-player");
       const bMusic = document.getElementById("btn-mode-music");
       const bGaming = document.getElementById("btn-mode-gaming");
       const titleEl = document.getElementById("now-playing-title");
 
       if (mode === "gaming") {
-        if (latestSyncedGaming.length > 0) {
-          player.src = `https://www.youtube.com/embed/${latestSyncedGaming[0].id}?autoplay=1`;
-          titleEl.textContent = latestSyncedGaming[0].title;
-        } else {
-          player.src = `https://www.youtube.com/embed/videoseries?list=${UPLOADS_PLAYLIST_ID}&autoplay=1`;
-          titleEl.textContent = "TRGVC Gaming — Latest Uploads (Newest First)";
-        }
+        const topGamingVideo = (latestSyncedGaming && latestSyncedGaming[0]) || FALLBACK_GAMING[0];
+        const playlistIds = (latestSyncedGaming.length ? latestSyncedGaming : FALLBACK_GAMING).map(v => v.id).join(",");
+        player.src = `https://www.youtube.com/embed/${topGamingVideo.id}?playlist=${playlistIds}&autoplay=1`;
+        titleEl.textContent = `TRGVC Gaming — ${topGamingVideo.title}`;
         bGaming.classList.add("active");
         bMusic.classList.remove("active");
       } else {
-        player.src = `https://www.youtube.com/embed/videoseries?list=${MUSIC_PLAYLIST_ID}&autoplay=1`;
+        if (latestSyncedMusic && latestSyncedMusic.length > 0) {
+          const topMusicVideo = latestSyncedMusic[0];
+          player.src = `https://www.youtube.com/embed/${topMusicVideo.id}?list=${MUSIC_PLAYLIST_ID}&autoplay=1`;
+          titleEl.textContent = `TRGVC Music — ${topMusicVideo.title}`;
+        } else {
+          player.src = `https://www.youtube.com/embed/videoseries?list=${MUSIC_PLAYLIST_ID}&autoplay=1`;
+          titleEl.textContent = "TRGVC Music — Official Playlist (Newest First)";
+        }
         bMusic.classList.add("active");
         bGaming.classList.remove("active");
-        titleEl.textContent = "TRGVC Music — Official Playlist (Newest First)";
       }
     }
 
     function playVideoInDashboard(videoId, title, isMusic) {
+      currentTopMode = isMusic ? "music" : "gaming";
       const player = document.getElementById("main-yt-player");
       const bMusic = document.getElementById("btn-mode-music");
       const bGaming = document.getElementById("btn-mode-gaming");
@@ -1921,7 +1949,8 @@
       } else if (isMusic) {
         player.src = `https://www.youtube.com/embed/${videoId}?list=${MUSIC_PLAYLIST_ID}&autoplay=1`;
       } else {
-        player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        const gamingQueue = (latestSyncedGaming.length ? latestSyncedGaming : FALLBACK_GAMING).map(v => v.id).join(",");
+        player.src = `https://www.youtube.com/embed/${videoId}?playlist=${gamingQueue}&autoplay=1`;
       }
 
       bMusic.classList.toggle("active", Boolean(isMusic));
@@ -1954,29 +1983,6 @@
       }
     }
 
-    /* Verified Real TRGVC Fallback Videos (Used only until live YouTube feed responds or to pad up to 8 cards) */
-    const FALLBACK_MUSIC = [
-      { id: "_9-fsug6184", title: "TRGVC - Turn It Up Louder (Official Audio)", date: "24 Oct 2026", timestamp: 1792800000000 },
-      { id: "yK2_v3s_y1E", title: "TRGVC – No Sleep Tonight (Official Audio)", date: "Oct 2026", timestamp: 1791590000000 },
-      { id: "ZW2g_4PKqNE", title: "TRGVC - When the Day Is Done (Official Audio)", date: "31 Aug 2026", timestamp: 1788134400000 },
-      { id: "yXBxfk6CCwc", title: "TRGVC – Heatwave Heart (Official Audio)", date: "15 Aug 2026", timestamp: 1786752000000 },
-      { id: "lhh2cj7u8Yw", title: "TRGVC – Beautiful Confusion (Official Audio)", date: "4 Aug 2026", timestamp: 1785801600000 },
-      { id: "XYa7Awtu3gk", title: "TRGVC - Midnight Pressure (Official Audio)", date: "9 Jul 2026", timestamp: 1783555200000 },
-      { id: "_9-fsug6184", title: "TRGVC - One More Round (Official Audio)", date: "Nov 2026", timestamp: 1793491200000 },
-      { id: "ZW2g_4PKqNE", title: "TRGVC - Lights Don't Lie (Official Audio)", date: "Sep 2026", timestamp: 1788220800000 }
-    ];
-
-    const FALLBACK_GAMING = [
-      { id: "CshBJO8wmp4", title: "THESE HITS ARE TOO SATISFYING 🤯🔥 Sniper & Throwing Knife Montage | MW4 DMZ", date: "25 Oct 2026", timestamp: 1792886400000 },
-      { id: "LxuZlve8a6s", title: "RISE OF THE MERCHANTS Early Access Gameplay! Can I Build a Trading Empire?", date: "23 Oct 2026", timestamp: 1792713600000 },
-      { id: "o74DlQtj-ng", title: "OPERATION IRON CITADEL COMPLETED IN ONE PUSH! 🔥 | Modern Warfare 4 DMZ", date: "22 Oct 2026", timestamp: 1792627200000 },
-      { id: "o6GR_-quInw", title: "Call of Duty: Modern Warfare 4 FULL CAMPAIGN | Complete Walkthrough", date: "20 Oct 2026", timestamp: 1792454400000 },
-      { id: "kI0p0JDRdyw", title: "CoD Modern Warfare 4 Campaign Gameplay LIVE | PC 1440p 60FPS", date: "18 Oct 2026", timestamp: 1792281600000 },
-      { id: "-rAaxLAS2xQ", title: "WRECKFEST 2 NEW UPDATE! FINALLY PLAYABLE… BUT ONLY ON A HIGH-END PC?!", date: "15 Oct 2026", timestamp: 1792022400000 },
-      { id: "ojFfWmCY8qg", title: "He Had SPECIALIST… And STILL Couldn't Beat Me 😈🔥 | Warzone Rebirth Island", date: "Oct 2026", timestamp: 1791244800000 },
-      { id: "Tmu9mlAcQr0", title: "Gears of War: E-Day Episode 1 🔥 I Was NOT Ready for How This Ends...", date: "Oct 2026", timestamp: 1790985600000 }
-    ];
-
     function isShortVideo(title, desc) {
       const t = `${title} ${desc || ""}`.toLowerCase();
       return (
@@ -1989,16 +1995,30 @@
     }
 
     function isMusicUpload(title, desc) {
-      const t = `${title} ${desc || ""}`.toLowerCase();
-      return (
+      const lowerTitle = (title || "").toLowerCase().trim();
+      const t = `${lowerTitle} ${(desc || "").toLowerCase()}`;
+      if (
         t.includes("official audio") ||
         t.includes("official music") ||
+        t.includes("official video") ||
         t.includes("official lyric") ||
+        t.includes("lyric video") ||
+        t.includes("music video") ||
+        t.includes("visualizer") ||
         t.includes("full album") ||
-        t.startsWith("trgvc -") ||
-        t.startsWith("trgvc –") ||
-        t.startsWith("trgvc —")
-      );
+        t.includes("new single") ||
+        t.includes("spotify") ||
+        t.includes("apple music") ||
+        lowerTitle.startsWith("trgvc -") ||
+        lowerTitle.startsWith("trgvc –") ||
+        lowerTitle.startsWith("trgvc —")
+      ) {
+        return true;
+      }
+      for (const song of KNOWN_SONG_TITLES) {
+        if (song.length > 4 && lowerTitle.includes(song)) return true;
+      }
+      return false;
     }
 
     function renderGrid(containerId, list, isMusic) {
@@ -2019,20 +2039,20 @@
       }).join("");
     }
 
-    function parseYouTubeXmlInBrowser(xmlText) {
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(xmlText, "text/xml");
-      const entries = Array.from(doc.querySelectorAll("entry"));
-      return entries.map((entry, idx) => {
-        const idNode = entry.getElementsByTagName("yt:videoId")[0];
-        const titleNode = entry.getElementsByTagName("title")[0];
-        const pubNode = entry.getElementsByTagName("published")[0];
-        const descNode = entry.getElementsByTagName("media:description")[0];
+    function decodeEntities(str) {
+      const txt = document.createElement("textarea");
+      txt.innerHTML = str || "";
+      return txt.value;
+    }
 
-        const id = idNode ? idNode.textContent.trim() : "";
-        const title = titleNode ? titleNode.textContent.trim() : "";
-        const pub = pubNode ? pubNode.textContent.trim() : "";
-        const description = descNode ? descNode.textContent.trim() : "";
+    function parseYouTubeXmlInBrowser(xmlText) {
+      const entries = [...xmlText.matchAll(/<entry>([\s\S]*?)<\/entry>/g)];
+      return entries.map((match, idx) => {
+        const c = match[1];
+        const id = (c.match(/<yt:videoId>(.*?)<\/yt:videoId>/) || [])[1] || "";
+        const title = decodeEntities((c.match(/<title>(.*?)<\/title>/) || [])[1] || "");
+        const pub = (c.match(/<published>(.*?)<\/published>/) || [])[1] || "";
+        const description = decodeEntities((c.match(/<media:description>([\s\S]*?)<\/media:description>/) || [])[1] || "");
         const timestamp = pub ? new Date(pub).getTime() : (Date.now() - idx * 1000);
         const date = pub
           ? new Date(timestamp).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })
@@ -2043,6 +2063,26 @@
     }
 
     async function fetchLiveXmlDirect(feedUrl) {
+      // 1. Try rss2json API first (fast & CORS-safe)
+      try {
+        const r2j = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`, { cache: "no-store" });
+        if (r2j.ok) {
+          const json = await r2j.json();
+          if (json && Array.isArray(json.items) && json.items.length > 0) {
+            return json.items.map((item, idx) => {
+              const idMatch = (item.guid || item.link || "").match(/(?:v=|video:)([a-zA-Z0-9_-]{11})/);
+              const id = idMatch ? idMatch[1] : "";
+              const timestamp = item.pubDate ? new Date(item.pubDate).getTime() : (Date.now() - idx * 1000);
+              const date = item.pubDate
+                ? new Date(timestamp).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })
+                : "Latest Upload";
+              return { id, title: decodeEntities(item.title), date, timestamp, description: item.description || "" };
+            }).filter(v => v.id && !isShortVideo(v.title, v.description));
+          }
+        }
+      } catch (_) {}
+
+      // 2. Fallback to raw XML CORS proxies
       const cacheBusterUrl = `${feedUrl}&_cb=${Date.now()}`;
       const proxies = [
         `https://api.allorigins.win/raw?url=${encodeURIComponent(cacheBusterUrl)}`,
@@ -2064,11 +2104,11 @@
       return [];
     }
 
-    function mergeLiveAndFallback(liveItems, fallbackItems) {
+    function mergeLiveAndFallback(liveItems, fallbackItems, excludeIdSet = new Set()) {
       const seen = new Set();
       const liveClean = [];
       for (const item of liveItems) {
-        if (!item || !item.id || seen.has(item.id)) continue;
+        if (!item || !item.id || seen.has(item.id) || excludeIdSet.has(item.id)) continue;
         if (isShortVideo(item.title, item.description)) continue;
         seen.add(item.id);
         liveClean.push(item);
@@ -2077,7 +2117,7 @@
 
       for (const fb of fallbackItems) {
         if (liveClean.length >= 8) break;
-        if (!seen.has(fb.id)) {
+        if (!seen.has(fb.id) && !excludeIdSet.has(fb.id)) {
           seen.add(fb.id);
           liveClean.push(fb);
         }
@@ -2086,8 +2126,8 @@
     }
 
     async function syncFeeds() {
-      if (!latestSyncedMusic.length) renderGrid("music-video-grid", FALLBACK_MUSIC, true);
-      if (!latestSyncedGaming.length) renderGrid("gaming-video-grid", FALLBACK_GAMING, false);
+      renderGrid("music-video-grid", latestSyncedMusic, true);
+      renderGrid("gaming-video-grid", latestSyncedGaming, false);
 
       // 1. Primary Cloudflare Pages Function (/api/youtube)
       try {
@@ -2096,19 +2136,25 @@
           const data = await res.json();
           const allChannel = data.items || [];
           const mRaw = [...(data.musicItems || []), ...allChannel.filter(v => isMusicUpload(v.title, v.description))];
-          const gRaw = [...(data.gamingItems || []), ...allChannel.filter(v => !isMusicUpload(v.title, v.description))];
+          const musicIds = new Set(mRaw.map(v => v.id));
+          const gRaw = [
+            ...(data.gamingItems || []).filter(v => !musicIds.has(v.id) && !isMusicUpload(v.title, v.description)),
+            ...allChannel.filter(v => !musicIds.has(v.id) && !isMusicUpload(v.title, v.description))
+          ];
 
           if (mRaw.length > 0 || gRaw.length > 0) {
             latestSyncedMusic = mergeLiveAndFallback(mRaw, FALLBACK_MUSIC);
-            latestSyncedGaming = mergeLiveAndFallback(gRaw, FALLBACK_GAMING);
+            const finalMusicIds = new Set(latestSyncedMusic.map(v => v.id));
+            latestSyncedGaming = mergeLiveAndFallback(gRaw, FALLBACK_GAMING, finalMusicIds);
             renderGrid("music-video-grid", latestSyncedMusic, true);
             renderGrid("gaming-video-grid", latestSyncedGaming, false);
+            if (currentTopMode === "gaming") switchTopPlayer("gaming");
             return;
           }
         }
       } catch (_) {}
 
-      // 2. Direct Browser XML Fallback (Channel Feed + Uploads Playlist + Music & Gaming Playlists)
+      // 2. Direct Browser XML Fallback
       try {
         const [channelItems, uploadsItems, musicPlaylistItems, gamingPlaylistItems] = await Promise.all([
           fetchLiveXmlDirect(`https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`),
@@ -2119,18 +2165,23 @@
 
         const combinedChannel = [...channelItems, ...uploadsItems];
         const mRaw = [...musicPlaylistItems, ...combinedChannel.filter(v => isMusicUpload(v.title, v.description))];
-        const gRaw = [...gamingPlaylistItems, ...combinedChannel.filter(v => !isMusicUpload(v.title, v.description))];
+        const musicIds = new Set(mRaw.map(v => v.id));
+        const gRaw = [
+          ...gamingPlaylistItems.filter(v => !musicIds.has(v.id) && !isMusicUpload(v.title, v.description)),
+          ...combinedChannel.filter(v => !musicIds.has(v.id) && !isMusicUpload(v.title, v.description))
+        ];
 
         latestSyncedMusic = mergeLiveAndFallback(mRaw, FALLBACK_MUSIC);
-        latestSyncedGaming = mergeLiveAndFallback(gRaw, FALLBACK_GAMING);
+        const finalMusicIds = new Set(latestSyncedMusic.map(v => v.id));
+        latestSyncedGaming = mergeLiveAndFallback(gRaw, FALLBACK_GAMING, finalMusicIds);
 
         renderGrid("music-video-grid", latestSyncedMusic, true);
         renderGrid("gaming-video-grid", latestSyncedGaming, false);
+        if (currentTopMode === "gaming") switchTopPlayer("gaming");
       } catch (_) {}
     }
 
     syncFeeds();
-    // Auto-refresh YouTube feeds every 5 minutes while page is open
     setInterval(syncFeeds, 300000);
   </script>
 </body>
