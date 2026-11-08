@@ -1,0 +1,9 @@
+worker.js
+wrangler.toml
+wrangler.jsonc
+functions
+README.md
+.git
+.github
+.wrangler
+node_modules
