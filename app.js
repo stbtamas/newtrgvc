@@ -5,6 +5,14 @@ const GAMING_PLAYLIST_ID = "PLGLaDUSam8Cs";
 const PRIVACY_KEY = "trgvc-privacy-choices-v1";
 const YT_ID_RE = /^[A-Za-z0-9_-]{11}$/;
 const ALBUM_ID_RE = /^[A-Za-z0-9]+$/;
+const ON_TONIGHT_CONFIG = {
+  releaseDateISO: "2026-12-01T00:00:00Z", // 1 December 2026, 00:00 GMT
+  upc: "700074815776",
+  hyperfollowUrl: "https://distrokid.com/hyperfollow/trgvc/on-tonight",
+  // Paste the 22-char Spotify Album ID from DistroKid's Spotify URI Looker-Upper once live/available.
+  // If left empty on release day, clicking Play automatically loads your live TRGVC Spotify Artist player.
+  spotifyAlbumId: ""
+};
 
     const ALBUM_DATA = {
       lights: {
@@ -248,8 +256,8 @@ function makeSpotifyFrame(src,title,height) {
   return iframe;
 }
 function loadSpotifyAlbum(albumId) {
-  if (!ALBUM_ID_RE.test(albumId)) return;
-  currentSpotifyAlbum=albumId;
+  if (albumId && !ALBUM_ID_RE.test(albumId)) return;
+  currentSpotifyAlbum=albumId || "";
   if (!hasConsent('spotify')) { setPanel(true); return; }
   updateSpotifyContent();
   document.getElementById('spotify-player-box').scrollIntoView({behavior:'smooth',block:'center'});
@@ -328,7 +336,7 @@ function filterSite(zone,shouldScroll=true) {
 
 // Delegated handlers for static HTML controls (no unsafe inline onclick).
 document.addEventListener('click',event=>{
-  const btn=event.target.closest('[data-open-privacy], [data-consent-service], [data-filter], [data-mode], [data-tracklist], [data-spotify-album], [data-search], [data-video-id], [data-close-modal]');
+  const btn=event.target.closest('[data-open-privacy], [data-consent-service], [data-filter], [data-mode], [data-tracklist], [data-spotify-album], [data-play-ontonight], [data-search], [data-video-id], [data-close-modal]');
   if (!btn) return;
   if(btn.hasAttribute('data-open-privacy')) return setPanel(true);
   if(btn.dataset.consentService) {
@@ -341,6 +349,7 @@ document.addEventListener('click',event=>{
   if(btn.dataset.mode){switchTopPlayer(btn.dataset.mode);if(btn.dataset.scrollPlayer)document.getElementById('master-theater').scrollIntoView({behavior:'smooth'});return;}
   if(btn.dataset.tracklist)return openTracklistModal(btn.dataset.tracklist);
   if(btn.dataset.spotifyAlbum)return loadSpotifyAlbum(btn.dataset.spotifyAlbum);
+  if(btn.hasAttribute('data-play-ontonight'))return loadSpotifyAlbum(ON_TONIGHT_CONFIG.spotifyAlbumId || "");
   if(btn.dataset.search)return setQuickSearch(btn.dataset.search);
   if(btn.dataset.videoId)return playVideoInDashboard(btn.dataset.videoId,btn.dataset.videoTitle,btn.dataset.videoMusic==='true');
   if(btn.dataset.closeModal)return closeTracklistModal();
@@ -373,3 +382,76 @@ setPanel(!preferences || location.hash === "#privacy-controls");
 window.addEventListener("hashchange",()=>{if(location.hash==="#privacy-controls")setPanel(true);});
 if (hasConsent('youtube'))syncFeeds();
 window.setInterval(()=>{if(hasConsent('youtube')&&document.visibilityState==='visible')syncFeeds();},300000);
+
+// On Tonight — 1 December 2026 release countdown (external & CSP-safe)
+function initOnTonightCountdown() {
+  const pod = document.getElementById('on-tonight-release');
+  if (!pod) return;
+  const targetMs = new Date(ON_TONIGHT_CONFIG.releaseDateISO).getTime();
+  const timerEl = document.getElementById('ot-countdown');
+  const dEl = document.getElementById('ot-days');
+  const hEl = document.getElementById('ot-hours');
+  const mEl = document.getElementById('ot-mins');
+  const sEl = document.getElementById('ot-secs');
+  const statusText = document.getElementById('ot-status-text');
+  const livePill = document.getElementById('ot-live-pill');
+  const primaryCta = document.getElementById('ot-primary-cta');
+  const playBtn = document.getElementById('ot-play-btn');
+  const card = document.getElementById('ot-catalogue-card');
+  const cardMeta = document.getElementById('ot-card-meta');
+  const cardCta = document.getElementById('ot-card-cta');
+  const cardPlayBtn = document.getElementById('ot-card-play-btn');
+
+  function spotifyDestination() {
+    return ON_TONIGHT_CONFIG.spotifyAlbumId && ALBUM_ID_RE.test(ON_TONIGHT_CONFIG.spotifyAlbumId)
+      ? `https://open.spotify.com/album/${ON_TONIGHT_CONFIG.spotifyAlbumId}`
+      : ON_TONIGHT_CONFIG.hyperfollowUrl;
+  }
+
+  let released = false;
+  function setReleasedState() {
+    if (released) return;
+    released = true;
+    pod.classList.add('is-live');
+    if (timerEl) timerEl.hidden = true;
+    if (livePill) livePill.hidden = false;
+    if (statusText) statusText.textContent = 'OUT NOW ON SPOTIFY';
+    if (primaryCta) {
+      primaryCta.href = spotifyDestination();
+      primaryCta.textContent = 'Stream ↗';
+    }
+    if (playBtn) playBtn.hidden = false;
+    if (card) card.classList.add('is-live');
+    if (cardMeta) cardMeta.textContent = 'Dec 2026 • Out Now';
+    if (cardCta) {
+      cardCta.href = spotifyDestination();
+      cardCta.textContent = 'Stream on Spotify ↗';
+    }
+    if (cardPlayBtn) cardPlayBtn.hidden = false;
+  }
+
+  function tick() {
+    const diff = targetMs - Date.now();
+    if (diff <= 0) {
+      setReleasedState();
+      return true;
+    }
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
+    if (dEl) dEl.textContent = String(days).padStart(2, '0');
+    if (hEl) hEl.textContent = String(hours).padStart(2, '0');
+    if (mEl) mEl.textContent = String(mins).padStart(2, '0');
+    if (sEl) sEl.textContent = String(secs).padStart(2, '0');
+    if (cardMeta) cardMeta.textContent = `1 Dec 2026 • Drops in ${days}d ${String(hours).padStart(2, '0')}h`;
+    return false;
+  }
+
+  if (!tick()) {
+    const intervalId = window.setInterval(() => {
+      if (tick()) window.clearInterval(intervalId);
+    }, 1000);
+  }
+}
+initOnTonightCountdown();

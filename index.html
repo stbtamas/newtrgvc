@@ -64,181 +64,6 @@
     "url": "https://distrokid.com/hyperfollow/trgvc/on-tonight"
   }
   </script>
-  <style id="on-tonight-styles">
-    #on-tonight-release [hidden] {
-      display: none !important;
-    }
-    .ot-release-banner {
-      position: relative;
-      display: grid;
-      grid-template-columns: minmax(220px, 310px) 1fr;
-      gap: 28px;
-      align-items: center;
-      margin: 28px 0;
-      padding: 28px;
-      border-radius: 22px;
-      background:
-        radial-gradient(circle at 0% 0%, rgba(168, 85, 247, 0.14), transparent 52%),
-        radial-gradient(circle at 100% 100%, rgba(0, 229, 255, 0.10), transparent 52%),
-        rgba(12, 15, 23, 0.92);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
-    }
-    .ot-cover-wrap {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      border-radius: 14px;
-      overflow: hidden;
-      background: #07090e;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-    }
-    .ot-cover-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .ot-badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      background: rgba(7, 9, 14, 0.86);
-      border: 1px solid rgba(192, 132, 252, 0.55);
-      color: #f3e8ff;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-    .ot-badge.is-live {
-      border-color: rgba(29, 185, 84, 0.75);
-      color: #86efac;
-    }
-    .ot-badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #c084fc;
-      box-shadow: 0 0 10px #c084fc;
-    }
-    .ot-badge.is-live .ot-badge-dot {
-      background: #1db954;
-      box-shadow: 0 0 10px #1db954;
-    }
-    .ot-content {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      min-width: 0;
-    }
-    .ot-meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-    }
-    .ot-upc {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 3px 10px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: rgba(255, 255, 255, 0.7);
-    }
-    .ot-content h3 {
-      margin: 0;
-      font-size: clamp(1.75rem, 3vw, 2.35rem);
-      line-height: 1.08;
-    }
-    .ot-content p {
-      margin: 0;
-      max-width: 60ch;
-      color: rgba(255, 255, 255, 0.74);
-    }
-    .ot-countdown {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(64px, 108px));
-      gap: 10px;
-      margin: 4px 0;
-    }
-    .ot-unit {
-      padding: 12px 8px;
-      border-radius: 12px;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.035);
-      border: 1px solid rgba(255, 255, 255, 0.09);
-    }
-    .ot-val {
-      display: block;
-      font-size: clamp(1.45rem, 2.8vw, 2rem);
-      font-weight: 800;
-      line-height: 1;
-      color: #ffffff;
-      font-variant-numeric: tabular-nums;
-    }
-    .ot-lbl {
-      display: block;
-      margin-top: 5px;
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.58);
-    }
-    .ot-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-    }
-    .ot-btn-spotify {
-      background: #1db954 !important;
-      border-color: #1db954 !important;
-      color: #05070b !important;
-      font-weight: 700;
-    }
-    .ot-btn-spotify:hover {
-      background: #22d362 !important;
-      border-color: #22d362 !important;
-      color: #05070b !important;
-    }
-    .ot-spotify-slot {
-      display: none;
-      margin-top: 6px;
-    }
-    .ot-spotify-slot.is-visible {
-      display: block;
-    }
-    .ot-live-note {
-      font-size: 0.82rem;
-      color: rgba(255, 255, 255, 0.62);
-    }
-    @media (max-width: 820px) {
-      .ot-release-banner {
-        grid-template-columns: 1fr;
-        padding: 20px;
-        gap: 20px;
-      }
-      .ot-cover-wrap {
-        max-width: 280px;
-        margin: 0 auto;
-      }
-      .ot-countdown {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-  </style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -268,11 +93,34 @@
     <div class="site-shell hero-inner hero-focus-layout">
       <div class="hero-eyebrow"><span class="live-dot"></span> OFFICIAL TRGVC WEBSITE <span class="eyebrow-line"></span> MUSIC • YOUTUBE • GAMING</div>
       <div class="hero-spacer" aria-hidden="true"></div>
-      <div class="hero-intro-bar hero-priority-bar">
+      <div class="hero-intro-bar hero-priority-bar hero-has-countdown">
         <div class="hero-intro compact-hero-copy">
           <span class="hero-kicker">ORIGINAL MUSIC · REAL GAMEPLAY</span>
           <h1 id="hero-title">Welcome to TRGVC<span class="heading-dot">.</span></h1>
           <p>Your music releases, YouTube videos and streaming links, all in one place.</p>
+        </div>
+        <div class="hero-countdown-pod" id="on-tonight-release" aria-label="On Tonight album release countdown">
+          <img class="ot-thumb" src="album-ontonight.webp" alt="On Tonight album cover" width="58" height="58">
+          <div class="ot-pod-body">
+            <div class="ot-pod-eyebrow" id="ot-status-badge"><span class="ot-pod-dot" aria-hidden="true"></span><span id="ot-status-text">NEW ALBUM · 1 DEC 2026</span></div>
+            <div class="ot-pod-row">
+              <strong class="ot-pod-title">On Tonight</strong>
+              <div class="ot-timer" id="ot-countdown" role="timer" aria-live="polite" aria-label="Time until On Tonight releases on 1 December 2026">
+                <span class="ot-unit"><span class="ot-val" id="ot-days">00</span><span class="ot-lbl">d</span></span>
+                <span class="ot-sep" aria-hidden="true">:</span>
+                <span class="ot-unit"><span class="ot-val" id="ot-hours">00</span><span class="ot-lbl">h</span></span>
+                <span class="ot-sep" aria-hidden="true">:</span>
+                <span class="ot-unit"><span class="ot-val" id="ot-mins">00</span><span class="ot-lbl">m</span></span>
+                <span class="ot-sep" aria-hidden="true">:</span>
+                <span class="ot-unit"><span class="ot-val" id="ot-secs">00</span><span class="ot-lbl">s</span></span>
+              </div>
+              <span class="ot-live-pill" id="ot-live-pill" hidden>OUT NOW</span>
+            </div>
+          </div>
+          <div class="ot-pod-actions">
+            <a class="ot-presave-btn" id="ot-primary-cta" href="https://distrokid.com/hyperfollow/trgvc/on-tonight" target="_blank" rel="noopener noreferrer">Pre-Save <span aria-hidden="true">↗</span></a>
+            <button type="button" class="ot-play-btn" id="ot-play-btn" data-play-ontonight="true" hidden>Play <span aria-hidden="true">↘</span></button>
+          </div>
         </div>
         <div class="hero-actions hero-priority-actions">
           <a class="btn btn-purple" href="#listen-now">Listen now <span aria-hidden="true">↗</span></a>
@@ -282,7 +130,6 @@
           <a href="https://open.spotify.com/artist/4r17VtPq9uwHDU81ER0E9o" target="_blank" rel="noopener noreferrer">Spotify ↗</a>
           <a href="https://music.apple.com/us/artist/trgvc/1875089429" target="_blank" rel="noopener noreferrer">Apple Music ↗</a>
           <a href="https://music.youtube.com/channel/UCTJMtzodlcDEYt38qR_0cxQ" target="_blank" rel="noopener noreferrer">YouTube Music ↗</a>
-          <a href="#on-tonight-release">Pre-Save “On Tonight” (1 Dec) ↓</a>
         </div>
       </div>
       <div class="hero-footer"><span>TRGVC / MUSIC, VIDEOS &amp; STREAMING</span><span class="hero-footer-right">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></span></div>
@@ -298,34 +145,6 @@
         <a class="priority-platform-card youtube-platform priority-gaming" href="https://www.youtube.com/playlist?list=PLGLaDUSam8Cs" target="_blank" rel="noopener noreferrer"><span class="platform-label">YOUTUBE / GAMING</span><strong>Gaming playlist</strong><p>New uploads, gameplay and memorable moments.</p><span class="platform-arrow" aria-hidden="true">↗</span></a>
         <a class="priority-platform-card spotify-platform" href="https://open.spotify.com/artist/4r17VtPq9uwHDU81ER0E9o" target="_blank" rel="noopener noreferrer"><span class="platform-label">STREAMING / SPOTIFY</span><strong>Spotify</strong><p>Listen to TRGVC albums and releases.</p><span class="platform-arrow" aria-hidden="true">↗</span></a>
         <a class="priority-platform-card apple-platform" href="https://music.apple.com/us/artist/trgvc/1875089429" target="_blank" rel="noopener noreferrer"><span class="platform-label">STREAMING / APPLE MUSIC</span><strong>Apple Music</strong><p>Discover the catalogue on Apple Music.</p><span class="platform-arrow" aria-hidden="true">↗</span></a>
-      </div>
-      <div class="ot-release-banner" id="on-tonight-release" aria-labelledby="ot-title">
-        <div class="ot-cover-wrap">
-          <img src="album-ontonight.webp" alt="On Tonight official album cover by TRGVC" width="720" height="720" loading="eager" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/_9-fsug6184/maxresdefault.jpg';">
-          <span class="ot-badge" id="ot-status-badge"><span class="ot-badge-dot" aria-hidden="true"></span><span id="ot-status-text">Drops 1 Dec 2026</span></span>
-        </div>
-        <div class="ot-content">
-          <div class="ot-meta-row">
-            <span class="overline purple-text" id="ot-eyebrow">UPCOMING ALBUM · 1 DECEMBER 2026</span>
-            <span class="ot-upc">UPC 700074815776</span>
-          </div>
-          <h3 id="ot-title">On Tonight<span class="heading-dot">.</span></h3>
-          <p id="ot-desc">The next studio album from TRGVC drops worldwide on 1 December 2026. Pre-save now on Spotify via DistroKid HyperFollow so it lands in your library the moment it releases.</p>
-          <div class="ot-countdown" id="ot-countdown" role="timer" aria-live="polite" aria-label="Countdown to On Tonight release on 1 December 2026">
-            <div class="ot-unit"><span class="ot-val" id="ot-days">--</span><span class="ot-lbl">Days</span></div>
-            <div class="ot-unit"><span class="ot-val" id="ot-hours">--</span><span class="ot-lbl">Hours</span></div>
-            <div class="ot-unit"><span class="ot-val" id="ot-mins">--</span><span class="ot-lbl">Mins</span></div>
-            <div class="ot-unit"><span class="ot-val" id="ot-secs">--</span><span class="ot-lbl">Secs</span></div>
-          </div>
-          <div class="ot-actions">
-            <a id="ot-primary-cta" class="btn ot-btn-spotify" href="https://distrokid.com/hyperfollow/trgvc/on-tonight" target="_blank" rel="noopener noreferrer">Pre-Save on Spotify <span aria-hidden="true">↗</span></a>
-            <button type="button" class="btn btn-purple" data-video-id="_9-fsug6184" data-video-music="true" data-video-title="TRGVC - Turn It Up Louder (Official Audio)">Preview “Turn It Up Louder” <span aria-hidden="true">↗</span></button>
-            <button type="button" class="btn btn-outline" id="ot-load-spotify-btn" hidden>Load Spotify player <span aria-hidden="true">↘</span></button>
-            <button type="button" class="btn btn-outline" id="ot-calendar-btn">Add reminder (.ics)</button>
-          </div>
-          <div class="ot-spotify-slot" id="ot-spotify-slot" aria-label="On Tonight Spotify player"></div>
-          <span class="ot-live-note" id="ot-live-note">Release time: 1 December 2026 at 00:00 GMT · Player unlocks automatically on release day.</span>
-        </div>
       </div>
       <div class="album-spotlight" aria-labelledby="spotlight-title">
         <div class="spotlight-cover"><img src="album-lights.webp" alt="When the Lights Don't Lie official album cover" width="720" height="720" loading="eager"></div>
@@ -465,15 +284,16 @@
 </div>
 </div>
 </article>
-<article class="album-card upcoming-card">
-<button class="album-cover" data-video-id="_9-fsug6184" data-video-music="true" data-video-title="TRGVC - Turn It Up Louder (Official Audio)" type="button"><img alt="On Tonight upcoming album artwork" loading="lazy" src="album-ontonight.webp"/></button>
+<article class="album-card upcoming-card" id="ot-catalogue-card">
+<button class="album-cover" data-video-id="_9-fsug6184" data-video-music="true" data-video-title="TRGVC - Turn It Up Louder (Official Audio)" type="button"><img alt="On Tonight official album cover" loading="lazy" src="album-ontonight.webp"/></button>
 <div class="album-info">
 <div>
 <div class="album-meta" id="ot-card-meta">1 Dec 2026 • Upcoming Album</div>
 <div class="album-title">On Tonight</div>
 </div>
 <div class="album-actions">
-<a class="album-btn full-span" id="ot-card-cta" href="https://distrokid.com/hyperfollow/trgvc/on-tonight" rel="noopener noreferrer" target="_blank">Pre-Save on Spotify ↗</a>
+<a class="album-btn ot-card-spotify full-span" id="ot-card-cta" href="https://distrokid.com/hyperfollow/trgvc/on-tonight" rel="noopener noreferrer" target="_blank">Pre-Save on Spotify ↗</a>
+<button class="album-btn full-span" id="ot-card-play-btn" data-play-ontonight="true" type="button" hidden>Play album here</button>
 <button class="album-btn full-span" data-video-id="_9-fsug6184" data-video-music="true" data-video-title="TRGVC - Turn It Up Louder (Official Audio)" type="button">Preview “Turn It Up Louder”</button>
 </div>
 </div>
@@ -528,143 +348,6 @@
 <footer class="site-footer"><div class="site-shell footer-main"><div class="footer-brand-col"><a href="index.html" class="footer-logo"><img src="trgvc-logo.webp" alt="" width="46" height="46"><span>TRGVC<span class="brand-dot">.</span></span></a><p>Original music. Real gameplay.<br>An independent UK creator focused on YouTube, albums and streaming platforms.</p></div><div class="footer-links-col"><span class="overline">LISTEN &amp; WATCH</span><nav aria-label="Priority TRGVC links"><a href="#music-hub">Albums &amp; Tracklists</a><a href="https://www.youtube.com/channel/UCTJMtzodlcDEYt38qR_0cxQ" target="_blank" rel="noopener noreferrer">YouTube Channel ↗</a><a href="https://www.youtube.com/playlist?list=PL5mv7FjsynbzKMH3jYHHn2i7EziEFpo7-" target="_blank" rel="noopener noreferrer">Music Playlist ↗</a><a href="https://www.youtube.com/playlist?list=PLGLaDUSam8Cs" target="_blank" rel="noopener noreferrer">Gaming Playlist ↗</a><a href="https://open.spotify.com/artist/4r17VtPq9uwHDU81ER0E9o" target="_blank" rel="noopener noreferrer">Spotify ↗</a><a href="https://music.apple.com/us/artist/trgvc/1875089429" target="_blank" rel="noopener noreferrer">Apple Music ↗</a></nav></div><div class="footer-links-col"><span class="overline">FOLLOW</span><nav aria-label="Follow TRGVC"><a href="https://www.instagram.com/trgvcofficial" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://www.tiktok.com/@trgvc" target="_blank" rel="noopener noreferrer">TikTok ↗</a><a href="https://x.com/trgvc" target="_blank" rel="noopener noreferrer">X (Twitter) ↗</a><a href="https://www.facebook.com/profile.php?id=61571515744540" target="_blank" rel="noopener noreferrer">Facebook ↗</a><a href="https://www.youtube.com/channel/UCTJMtzodlcDEYt38qR_0cxQ" target="_blank" rel="noopener noreferrer">YouTube ↗</a></nav></div><div class="footer-links-col"><span class="overline">LEGAL</span><nav aria-label="Legal pages"><a href="privacy.html">Privacy Policy</a><a href="cookies.html">Cookies</a><a href="terms.html">Terms</a><a href="copyright.html">Copyright</a><a href="accessibility.html">Accessibility</a><a href="contact.html">Contact</a><button type="button" class="privacy-link" data-open-privacy="true">Privacy settings</button></nav></div></div><div class="site-shell footer-more"><span class="overline">ALSO STREAM ON</span><nav aria-label="Additional music platforms"><a href="https://music.youtube.com/channel/UCTJMtzodlcDEYt38qR_0cxQ" target="_blank" rel="noopener noreferrer">YouTube Music ↗</a><a href="https://deezer.com/en/artist/371691531" target="_blank" rel="noopener noreferrer">Deezer ↗</a><a href="https://tidal.com/artist/74097811" target="_blank" rel="noopener noreferrer">Tidal ↗</a><a href="https://music.amazon.co.uk/artists/B0GLXTS1JZ/trgvc" target="_blank" rel="noopener noreferrer">Amazon Music ↗</a></nav></div><div class="site-shell footer-bottom"><span>© 2026 TRGVC. All rights reserved.</span><span class="footer-bottom-links"><a href="index.html">Discover</a><a href="index.html#music-hub">Music</a><a href="index.html#gaming-hub">Gaming</a><a href="https://steamcommunity.com/id/TRGVC/" target="_blank" rel="noopener noreferrer">Steam ↗</a><a href="https://www.xbox.com/en-GB/play/user/TRGVC1061" target="_blank" rel="noopener noreferrer">Xbox PC ↗</a></span></div></footer>
 
 <section id="privacy-controls" class="privacy-controls" aria-labelledby="privacy-controls-title" hidden><div class="privacy-heading"><span class="eyebrow">YOUR CHOICE</span><h2 id="privacy-controls-title">Privacy, on your terms.</h2></div><p>TRGVC uses essential local preferences. YouTube videos and Spotify players stay off until you enable them. Change your choices at any time. Read our <a href="privacy.html">privacy policy</a> and <a href="cookies.html">cookie information</a>.</p><label><input type="checkbox" id="opt-youtube"> Enable YouTube videos and playlist previews</label><label><input type="checkbox" id="opt-spotify"> Enable Spotify players</label><div class="privacy-actions"><button id="privacy-reject" type="button">Reject optional</button><button id="privacy-save" type="button">Save choices</button><button id="privacy-accept" class="primary" type="button">Accept all</button></div></section>
-<script>
-(function () {
-  const ON_TONIGHT_CONFIG = {
-    title: "On Tonight",
-    upc: "700074815776",
-    releaseDateISO: "2026-12-01T00:00:00Z", // 1 December 2026, 00:00 GMT
-    hyperfollowUrl: "https://distrokid.com/hyperfollow/trgvc/on-tonight",
-    // Optional: Paste the 22-character Spotify Album ID from DistroKid's Spotify URI Looker-Upper
-    // once available so the player loads the exact album directly on release day.
-    // If left empty, it automatically loads your live TRGVC Spotify Artist player on 1 Dec 2026.
-    spotifyAlbumId: "",
-    spotifyArtistId: "4r17VtPq9uwHDU81ER0E9o"
-  };
-
-  const targetTime = new Date(ON_TONIGHT_CONFIG.releaseDateISO).getTime();
-  const countdownEl = document.getElementById("ot-countdown");
-  const dEl = document.getElementById("ot-days");
-  const hEl = document.getElementById("ot-hours");
-  const mEl = document.getElementById("ot-mins");
-  const sEl = document.getElementById("ot-secs");
-  const badgeEl = document.getElementById("ot-status-badge");
-  const statusTextEl = document.getElementById("ot-status-text");
-  const eyebrowEl = document.getElementById("ot-eyebrow");
-  const descEl = document.getElementById("ot-desc");
-  const primaryCta = document.getElementById("ot-primary-cta");
-  const loadSpotifyBtn = document.getElementById("ot-load-spotify-btn");
-  const spotifySlot = document.getElementById("ot-spotify-slot");
-  const liveNote = document.getElementById("ot-live-note");
-  const calendarBtn = document.getElementById("ot-calendar-btn");
-  const cardMeta = document.getElementById("ot-card-meta");
-  const cardCta = document.getElementById("ot-card-cta");
-
-  function getSpotifyUrl() {
-    return ON_TONIGHT_CONFIG.spotifyAlbumId
-      ? "https://open.spotify.com/album/" + ON_TONIGHT_CONFIG.spotifyAlbumId
-      : ON_TONIGHT_CONFIG.hyperfollowUrl;
-  }
-
-  function getSpotifyEmbedUrl() {
-    return ON_TONIGHT_CONFIG.spotifyAlbumId
-      ? "https://open.spotify.com/embed/album/" + ON_TONIGHT_CONFIG.spotifyAlbumId + "?utm_source=generator&theme=0"
-      : "https://open.spotify.com/embed/artist/" + ON_TONIGHT_CONFIG.spotifyArtistId + "?utm_source=generator&theme=0";
-  }
-
-  function enableOnTonightPlayer() {
-    if (!spotifySlot) return;
-    spotifySlot.innerHTML =
-      '<iframe style="border-radius:12px" src="' + getSpotifyEmbedUrl() + '" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="TRGVC On Tonight Spotify Player"></iframe>';
-    spotifySlot.classList.add("is-visible");
-    if (loadSpotifyBtn) loadSpotifyBtn.hidden = true;
-    if (liveNote) liveNote.textContent = "Streaming via Spotify.";
-  }
-
-  if (loadSpotifyBtn) {
-    loadSpotifyBtn.addEventListener("click", enableOnTonightPlayer);
-  }
-
-  if (calendarBtn) {
-    calendarBtn.addEventListener("click", function () {
-      const icsLines = [
-        "BEGIN:VCALENDAR",
-        "VERSION:2.0",
-        "PRODID:-//TRGVC//On Tonight Album Release//EN",
-        "BEGIN:VEVENT",
-        "UID:trgvc-on-tonight-700074815776@trgvc.club",
-        "DTSTAMP:20261122T120000Z",
-        "DTSTART:20261201T000000Z",
-        "DTEND:20261201T010000Z",
-        "SUMMARY:TRGVC — On Tonight (Album Release)",
-        "DESCRIPTION:Stream the new TRGVC studio album On Tonight on Spotify & all platforms: https://distrokid.com/hyperfollow/trgvc/on-tonight (UPC: 700074815776)",
-        "URL:https://distrokid.com/hyperfollow/trgvc/on-tonight",
-        "END:VEVENT",
-        "END:VCALENDAR"
-      ].join("\r\n");
-
-      const blob = new Blob([icsLines], { type: "text/calendar;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "TRGVC-On-Tonight-Release.ics";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
-    });
-  }
-
-  let hasReleased = false;
-  function switchToReleasedState() {
-    if (hasReleased) return;
-    hasReleased = true;
-    if (countdownEl) countdownEl.hidden = true;
-    if (badgeEl) badgeEl.classList.add("is-live");
-    if (statusTextEl) statusTextEl.textContent = "Out Now on Spotify";
-    if (eyebrowEl) eyebrowEl.textContent = "NEW STUDIO ALBUM · OUT NOW";
-    if (descEl) {
-      descEl.textContent = "On Tonight is officially out now worldwide. Load the Spotify player below or stream it directly in your favourite music app.";
-    }
-    if (primaryCta) {
-      primaryCta.href = getSpotifyUrl();
-      primaryCta.innerHTML = 'Stream on Spotify <span aria-hidden="true">↗</span>';
-    }
-    if (loadSpotifyBtn) loadSpotifyBtn.hidden = false;
-    if (calendarBtn) calendarBtn.hidden = true;
-    if (liveNote) liveNote.textContent = "Media stays private until you choose to load the Spotify player.";
-    if (cardMeta) cardMeta.textContent = "Dec 2026 • Out Now";
-    if (cardCta) {
-      cardCta.href = getSpotifyUrl();
-      cardCta.textContent = "Stream on Spotify ↗";
-    }
-  }
-
-  function updateCountdown() {
-    const diff = targetTime - Date.now();
-    if (diff <= 0) {
-      switchToReleasedState();
-      return true;
-    }
-    const days = Math.floor(diff / 86400000);
-    const hours = Math.floor((diff % 86400000) / 3600000);
-    const mins = Math.floor((diff % 3600000) / 60000);
-    const secs = Math.floor((diff % 60000) / 1000);
-
-    if (dEl) dEl.textContent = String(days).padStart(2, "0");
-    if (hEl) hEl.textContent = String(hours).padStart(2, "0");
-    if (mEl) mEl.textContent = String(mins).padStart(2, "0");
-    if (sEl) sEl.textContent = String(secs).padStart(2, "0");
-    return false;
-  }
-
-  if (!updateCountdown()) {
-    const timerId = setInterval(function () {
-      if (updateCountdown()) clearInterval(timerId);
-    }, 1000);
-  }
-})();
-</script>
 <script src="app.js" defer></script>
 </body>
 </html>

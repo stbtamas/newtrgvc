@@ -1055,3 +1055,273 @@ h1,h2,h3 { font-family:"Segoe UI Variable Display", "Aptos Display", "Inter", "S
   grid-column:auto;
   grid-row:auto;
 }
+
+
+/* ================================================================
+   TRGVC V3.10 — HERO "ON TONIGHT" ALBUM RELEASE COUNTDOWN (1 DEC 2026)
+   External stylesheet rules (strict CSP compliant, zero inline styles)
+   ================================================================ */
+.hero-countdown-pod [hidden],
+#ot-catalogue-card [hidden] {
+  display: none !important;
+}
+.hero-fullscreen .hero-intro-bar.hero-has-countdown {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-areas:
+    "copy countdown actions"
+    "copy countdown micro";
+  align-items: center;
+  column-gap: clamp(16px, 2vw, 28px);
+  row-gap: 10px;
+}
+.hero-has-countdown .hero-countdown-pod {
+  grid-area: countdown;
+}
+.hero-countdown-pod {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(226, 115, 238, 0.34);
+  background:
+    linear-gradient(135deg, rgba(217, 70, 239, 0.14) 0%, rgba(12, 16, 28, 0.88) 55%, rgba(0, 216, 255, 0.10) 100%);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  min-width: 0;
+}
+.hero-countdown-pod.is-live {
+  border-color: rgba(29, 185, 84, 0.55);
+  background:
+    linear-gradient(135deg, rgba(29, 185, 84, 0.16) 0%, rgba(12, 16, 28, 0.90) 60%, rgba(0, 216, 255, 0.10) 100%);
+}
+.ot-thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #0b0e18;
+}
+.ot-pod-body {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+.ot-pod-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #f0b7fb;
+  white-space: nowrap;
+}
+.hero-countdown-pod.is-live .ot-pod-eyebrow {
+  color: #86efac;
+}
+.ot-pod-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e273ee;
+  box-shadow: 0 0 10px rgba(226, 115, 238, 0.9);
+  flex-shrink: 0;
+}
+.hero-countdown-pod.is-live .ot-pod-dot {
+  background: #1db954;
+  box-shadow: 0 0 10px rgba(29, 185, 84, 0.9);
+}
+.ot-pod-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.ot-pod-title {
+  font-family: "Segoe UI Variable Display", "Aptos Display", "Inter", "Segoe UI", system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 820;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #ffffff;
+  white-space: nowrap;
+}
+.ot-timer {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.ot-unit {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  padding: 4px 7px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.065);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+}
+.ot-val {
+  font-size: 14px;
+  font-weight: 850;
+  line-height: 1;
+  color: #ffffff;
+}
+.ot-lbl {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #aeb7c9;
+}
+.ot-sep {
+  font-size: 12px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.35);
+}
+.ot-live-pill {
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  background: rgba(29, 185, 84, 0.2);
+  border: 1px solid rgba(29, 185, 84, 0.65);
+  color: #86efac;
+}
+.ot-pod-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+}
+.ot-presave-btn,
+.ot-play-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: transform 0.25s var(--ease-luxe), background 0.25s ease, border-color 0.25s ease;
+}
+.ot-presave-btn {
+  background: #1db954;
+  border: 1px solid #1db954;
+  color: #05110a;
+}
+.ot-presave-btn:hover {
+  background: #22d362;
+  border-color: #22d362;
+  transform: translateY(-2px);
+}
+.ot-play-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  color: #ffffff;
+}
+.ot-play-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+.album-btn.ot-card-spotify {
+  background: rgba(29, 185, 84, 0.16);
+  border-color: rgba(29, 185, 84, 0.48);
+  color: #d8ffe6;
+}
+.album-btn.ot-card-spotify:hover {
+  background: #1db954;
+  border-color: #1db954;
+  color: #05110a;
+}
+.upcoming-card.is-live::before {
+  content: 'OUT NOW';
+  background: #1db954;
+  color: #05110a;
+}
+
+@media (max-width: 1320px) {
+  .hero-fullscreen .hero-intro-bar.hero-has-countdown {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "copy actions"
+      "countdown micro";
+    align-items: center;
+  }
+  .hero-has-countdown .hero-countdown-pod {
+    justify-self: start;
+  }
+}
+@media (max-width: 1000px) {
+  .hero-fullscreen .hero-intro-bar.hero-has-countdown {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "countdown"
+      "actions"
+      "micro";
+    align-items: stretch;
+  }
+  .hero-has-countdown .hero-countdown-pod {
+    justify-self: stretch;
+    justify-content: space-between;
+  }
+}
+@media (max-width: 760px) {
+  .hero.hero-fullscreen {
+    height: auto;
+    min-height: calc(100svh - var(--nav-current));
+  }
+  .hero-fullscreen .hero-art {
+    height: clamp(230px, 44svh, 350px);
+  }
+  .hero-fullscreen .hero-inner {
+    height: auto;
+    min-height: calc(100svh - var(--nav-current));
+  }
+  .hero-fullscreen .hero-spacer {
+    min-height: clamp(165px, 34svh, 280px);
+  }
+  .hero-countdown-pod {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 11px 12px;
+  }
+  .ot-thumb {
+    width: 48px;
+    height: 48px;
+  }
+  .ot-pod-body {
+    flex: 1 1 180px;
+  }
+  .ot-pod-title {
+    font-size: 16px;
+  }
+  .ot-pod-actions {
+    width: 100%;
+  }
+  .ot-presave-btn,
+  .ot-play-btn {
+    flex: 1;
+    min-height: 38px;
+  }
+}
+@media (max-width: 420px) {
+  .ot-unit {
+    padding: 3px 5px;
+  }
+  .ot-val {
+    font-size: 13px;
+  }
+}
